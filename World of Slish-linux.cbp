@@ -41,10 +41,12 @@
 			<Add library="SDL2_ttf" />
 		</Linker>
 		<Unit filename="headers/Entity.h" />
+		<Unit filename="headers/Green_Slish.h" />
 		<Unit filename="headers/Player.h" />
 		<Unit filename="headers/Utils/Motion.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="sources/Entity.cpp" />
+		<Unit filename="sources/Green_Slish.cpp" />
 		<Unit filename="sources/Player.cpp" />
 		<Extensions />
 	</Project>

@@ -34,3 +34,5 @@
 #CBP Save
 
 *.save
+/build/
+/Debug/
