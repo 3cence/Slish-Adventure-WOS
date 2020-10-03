@@ -414,3 +414,41 @@
 1601518878 c:\users\benal\onedrive\documents\sdl2\world of slish\headers\green_slish.h
 	"Entity.h"
 
+1601740466 source:/home/ecence/Documents/sdl2/Slish-Adventure-WOS/sources/Entity.cpp
+	"Entity.h"
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<SDL2/SDL.h>
+
+1601740466 /home/ecence/Documents/sdl2/Slish-Adventure-WOS/headers/Entity.h
+	<vector>
+	<iostream>
+	<SDL2/SDL.h>
+
+1601740466 source:/home/ecence/Documents/sdl2/Slish-Adventure-WOS/main.cpp
+	<iostream>
+	<vector>
+	<cstdlib>
+	<ctime>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	"Entity.h"
+	"Player.h"
+
+1601740466 /home/ecence/Documents/sdl2/Slish-Adventure-WOS/headers/Player.h
+	<iostream>
+	<vector>
+	<SDL2/SDL.h>
+	"Entity.h"
+	"Utils/Motion.h"
+
+1601740466 /home/ecence/Documents/sdl2/Slish-Adventure-WOS/headers/Utils/Motion.h
+
+1601740466 source:/home/ecence/Documents/sdl2/Slish-Adventure-WOS/sources/Player.cpp
+	"Player.h"
+	<cmath>
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+
