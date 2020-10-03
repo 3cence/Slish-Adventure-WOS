@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+#CBP Save
+
+*.save
