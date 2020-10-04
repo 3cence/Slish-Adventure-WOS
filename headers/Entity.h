@@ -15,7 +15,7 @@ protected:
     SDL_Renderer* renderer = NULL;
     SDL_Window* window = NULL;
 
-    void setup_render(int, int);
+    void setup_bounds(int, int);
     virtual void tick(std::vector<SDL_Event>, int) {std::cout << "WARNING: Ticking base entity!" << std::endl;}
 
 public:
@@ -24,7 +24,6 @@ public:
     Entity(SDL_Renderer* = NULL, SDL_Window* = NULL);
     virtual ~Entity();
 
-    virtual void spawned() {}
     void start_tick(std::vector<SDL_Event>, int);
     virtual void render() {std::cout << "WARNING: Rendering base entity!" << std::endl;}
 

@@ -23,7 +23,7 @@ void Entity::start_tick(std::vector<SDL_Event> events, int this_tick)
     last_tick = this_tick;
 }
 
-void Entity::setup_render(int width, int height)
+void Entity::setup_bounds(int width, int height)
 {
     bounds.x = 0;
     bounds.y = 0;

@@ -30,8 +30,10 @@ int main(int argc, char* argv[])
     if(renderer == NULL)
         std::cout << "SDL_CreateRenderer: " << SDL_GetError() << std::endl;
 
-    //Core game objects
+    //Init core game objects
+    Green_Slish::init(window, renderer);
     new Player(renderer, window);
+    Green_Slish::spawn();
 
     //Main Loop & Events
     SDL_Event event;
@@ -58,7 +60,7 @@ int main(int argc, char* argv[])
         SDL_SetRenderDrawColor(renderer, bg_color, bg_color, bg_color, 255);
         SDL_RenderFillRect(renderer, NULL);
 
-        //Tick Entitys (My Code)
+        //Tick Entitys
         for(int i = 0; i < (int)Entity::entitys.size(); i++)
         {
              Entity::entitys[i]->start_tick(events, SDL_GetTicks());

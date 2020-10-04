@@ -15,7 +15,7 @@ Player::Player(SDL_Renderer* renderer, SDL_Window* window):
 {
     //Add to the player list and set it up for rendering
     players.push_back(this);
-    setup_render(128, 128);
+    setup_bounds(128, 128);
     bounds.x = 720/2-64;
     bounds.y = 480/2-64;
 
