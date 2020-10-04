@@ -10,6 +10,10 @@ private:
 protected:
     virtual void tick(std::vector<SDL_Event>, int);
 public:
+    static std::vector<Green_Slish*> green_slishs;
+
+    Green_Slish(SDL_Renderer*, SDL_Window*);
+    virtual ~Green_Slish();
     virtual void render();
-    virtual void spawn();
+    virtual void spawned();
 };

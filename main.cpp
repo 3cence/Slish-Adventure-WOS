@@ -7,6 +7,7 @@
 #include <SDL2/SDL_ttf.h>
 
 #include "Entity.h"
+#include "Green_Slish.h"
 #include "Player.h"
 
 int main(int argc, char* argv[])

@@ -24,7 +24,7 @@ public:
     Entity(SDL_Renderer* = NULL, SDL_Window* = NULL);
     virtual ~Entity();
 
-    virtual void spawn() {}
+    virtual void spawned() {}
     void start_tick(std::vector<SDL_Event>, int);
     virtual void render() {std::cout << "WARNING: Rendering base entity!" << std::endl;}
 
