@@ -23,7 +23,8 @@ int main(int argc, char* argv[])
     srand(time(NULL));
 
     //Set up the Window and Renderer
-    SDL_Window* window = SDL_CreateWindow("World of Slish", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, k::window_x, k::window_y, SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("World of Slish", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+    		k::window_x, k::window_y, SDL_WINDOW_SHOWN);
     if(window == NULL)
         std::cout << "SDL_CreateWindow: " << SDL_GetError() << std::endl;
 
@@ -66,6 +67,7 @@ int main(int argc, char* argv[])
         {
              Entity::entitys[i]->start_tick(events, SDL_GetTicks());
         }
+        Entity::enforce_boundaries();
 
         //Render Entitys
         for(int i = 0; i < (int)Entity::entitys.size(); i++)

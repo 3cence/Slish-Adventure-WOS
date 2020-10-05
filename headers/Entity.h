@@ -14,12 +14,14 @@ protected:
     SDL_Point center = {-1, -1};
     SDL_Renderer* renderer = NULL;
     SDL_Window* window = NULL;
+    bool enable_enforce_boundaries = true;
 
     void setup_bounds(int, int);
     virtual void tick(std::vector<SDL_Event>, int) {std::cout << "WARNING: Ticking base entity!" << std::endl;}
 
 public:
     static std::vector<Entity*> entitys;
+    static void enforce_boundaries();
 
     Entity(SDL_Renderer* = NULL, SDL_Window* = NULL);
     virtual ~Entity();

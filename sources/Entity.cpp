@@ -2,7 +2,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <cmath>
 #include <SDL2/SDL.h>
+
+#include "Constants.h"
 
 std::vector<Entity*> Entity::entitys;
 
@@ -15,6 +18,34 @@ Entity::Entity(SDL_Renderer* renderer, SDL_Window* window)
     UUID *= rand();
     UUID *= rand();
     std::cout << "UUID: " << UUID << " Count: " << entitys.size() << std::endl;
+}
+
+void Entity::enforce_boundaries()
+{
+	for(Entity* e: entitys)
+	{
+		if(e->enable_enforce_boundaries)
+		{
+			int& ex = e->bounds.x;
+			int& ey = e->bounds.y;
+			if(ex < 0)
+			{
+				ex += abs(ex);
+			}
+			if(ey < 0)
+			{
+				ey += abs(ey);
+			}
+			if(ex > k::window_x - e->bounds.w)
+			{
+				ex = k::window_x - e->bounds.w;
+			}
+			if(ey > k::window_y - e->bounds.h)
+			{
+				ey = k::window_y - e->bounds.h;
+			}
+		}
+	}
 }
 
 void Entity::start_tick(std::vector<SDL_Event> events, int this_tick)
