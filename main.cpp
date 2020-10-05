@@ -6,6 +6,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
+#include "Constants.h"
 #include "Entity.h"
 #include "Green_Slish.h"
 #include "Player.h"
@@ -22,7 +23,7 @@ int main(int argc, char* argv[])
     srand(time(NULL));
 
     //Set up the Window and Renderer
-    SDL_Window* window = SDL_CreateWindow("World of Slish", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 720, 480, SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("World of Slish", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, k::window_x, k::window_y, SDL_WINDOW_SHOWN);
     if(window == NULL)
         std::cout << "SDL_CreateWindow: " << SDL_GetError() << std::endl;
 

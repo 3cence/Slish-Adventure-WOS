@@ -26,6 +26,7 @@ protected:
     virtual void tick(std::vector<SDL_Event>, int);
 
 public:
+    static int size;
     static std::vector<Player*> players;
 
     Player(SDL_Renderer*, SDL_Window*);

@@ -1,5 +1,6 @@
 #include "Player.h"
-
+#include "Entity.h"
+#include "Constants.h"
 #include <cmath>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -9,15 +10,16 @@ int Player::base_width, Player::base_height;
 SDL_Texture* Player::texture_cannon = NULL;
 int Player::cannon_width, Player::cannon_height;
 std::vector<Player*> Player::players;
+int Player::size = 64;
 
 Player::Player(SDL_Renderer* renderer, SDL_Window* window):
     Entity(renderer, window)
 {
     //Add to the player list and set it up for rendering
     players.push_back(this);
-    setup_bounds(64, 64);
-    bounds.x = 720 / 2 - 32;
-    bounds.y = 480 / 2 - 32;
+    setup_bounds(size, size);
+    bounds.x = k::window_x / 2 - size / 2;
+    bounds.y = k::window_y / 2 - size / 2;
 
     //Load the textures if has not been yet
     if(texture_base == NULL)
@@ -44,7 +46,7 @@ void Player::tick(std::vector<SDL_Event> events, int since_last_tick)
 {
     handle_events(events);
     center.x = bounds.x + (bounds.w / 2);
-    center.y = bounds.y + (bounds.h / 2) ;
+    center.y = bounds.y + (bounds.y / 2) ;
 
     //Postion the cannnon
     int x = mouse_pos.x - center.x;
