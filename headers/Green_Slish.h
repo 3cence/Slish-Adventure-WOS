@@ -15,6 +15,7 @@ private:
 protected:
     virtual void tick(std::vector<SDL_Event>, int);
 public:
+    static int size;
     static std::vector<Green_Slish*> green_slishs;
 
     Green_Slish(SDL_Point = {-1, -1});
