@@ -1,10 +1,12 @@
 #include "Green_Slish.h"
 #include "Entity.h"
 #include <iostream>
+#include <SDL2/SDL_image.h>
 
 std::vector<Green_Slish*> Green_Slish::green_slishs;
 SDL_Window* Green_Slish::u_window = NULL;
 SDL_Renderer* Green_Slish::u_renderer = NULL;
+SDL_Texture* Green_Slish::texture_green_slish[1];
 
 Green_Slish::Green_Slish(SDL_Point position):
 		Entity(u_renderer, u_window)
@@ -12,9 +14,11 @@ Green_Slish::Green_Slish(SDL_Point position):
 	if(u_renderer != NULL && u_window != NULL)
 	{
 		green_slishs.push_back(this);
-		setup_bounds(64, 64);
+		setup_bounds(32, 32);
 		bounds.x = position.x;
 		bounds.y = position.y;
+
+		texture_green_slish[0] = IMG_LoadTexture(renderer, "res/textures/enemy/slish-calm.png");
 	}
 	else
 	{
@@ -31,8 +35,7 @@ void Green_Slish::init(SDL_Window* window, SDL_Renderer* renderer)
 
 void Green_Slish::render()
 {
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-	SDL_RenderFillRect(renderer, &bounds);
+	SDL_RenderCopy(renderer, texture_green_slish[0], NULL, &bounds);
 }
 
 void Green_Slish::spawn()

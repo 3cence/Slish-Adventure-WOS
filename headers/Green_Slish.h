@@ -10,6 +10,8 @@ class Green_Slish: Entity
 private:
 	static SDL_Renderer* u_renderer;
 	static SDL_Window* u_window;
+
+	static SDL_Texture* texture_green_slish[];
 protected:
     virtual void tick(std::vector<SDL_Event>, int);
 public:

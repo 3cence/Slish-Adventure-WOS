@@ -15,9 +15,9 @@ Player::Player(SDL_Renderer* renderer, SDL_Window* window):
 {
     //Add to the player list and set it up for rendering
     players.push_back(this);
-    setup_bounds(128, 128);
-    bounds.x = 720/2-64;
-    bounds.y = 480/2-64;
+    setup_bounds(64, 64);
+    bounds.x = 720 / 2 - 32;
+    bounds.y = 480 / 2 - 32;
 
     //Load the textures if has not been yet
     if(texture_base == NULL)
