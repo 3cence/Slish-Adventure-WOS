@@ -10,6 +10,7 @@
 #include "Entity.h"
 #include "Green_Slish.h"
 #include "Player.h"
+#include "Utils/Fractions.h"
 
 int main(int argc, char* argv[])
 {
@@ -36,6 +37,10 @@ int main(int argc, char* argv[])
     Green_Slish::init(window, renderer);
     new Player(renderer, window);
     Green_Slish::spawn();
+
+    Fraction f = {10, 15};
+    simplify(f);
+    std::cout << f.d << " " << f.n << std::endl;
 
     //Main Loop & Events
     SDL_Event event;

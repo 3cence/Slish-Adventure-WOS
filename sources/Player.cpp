@@ -46,7 +46,7 @@ void Player::tick(std::vector<SDL_Event> events, int since_last_tick)
 {
     handle_events(events);
     center.x = bounds.x + (bounds.w / 2);
-    center.y = bounds.y + (bounds.y / 2) ;
+    center.y = bounds.y + (bounds.h / 2) ;
 
     //Postion the cannnon
     int x = mouse_pos.x - center.x;
