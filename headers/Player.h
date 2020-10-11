@@ -5,6 +5,7 @@
 #include <SDL2/SDL.h>
 
 #include "Entity.h"
+#include "Utils/Shapes.h"
 #include "Utils/Motion.h"
 
 class Player : public Entity

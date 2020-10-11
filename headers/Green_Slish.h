@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entity.h"
+#include "Utils/Shapes.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <vector>
@@ -12,6 +13,7 @@ private:
 	static SDL_Window* u_window;
 
 	static SDL_Texture* texture_green_slish[];
+	Rect high_res_bounds;
 protected:
     virtual void tick(std::vector<SDL_Event>, int);
 public:

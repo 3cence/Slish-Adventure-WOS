@@ -25,6 +25,10 @@ Green_Slish::Green_Slish(SDL_Point position):
 		setup_bounds(size, size);
 		bounds.x = position.x;
 		bounds.y = position.y;
+	    high_res_bounds.x = bounds.x;
+	    high_res_bounds.y = bounds.y;
+	    high_res_bounds.w = bounds.w;
+	    high_res_bounds.h = bounds.h;
 
 		texture_green_slish[0] = IMG_LoadTexture(renderer, "res/textures/enemy/slish-calm.png");
 	}
@@ -71,26 +75,27 @@ void Green_Slish::spawn()
 
 void Green_Slish::tick(std::vector<SDL_Event> events, int time)
 {
-	static long passed = time;
+	static long passed = 0;
 	passed++;
 
-	if(passed % 4 == 0)
+	if(passed % 3 == 0)
 	{
-		const int speed = 2;
-		Point current_point = {(double)bounds.x, (double)bounds.y};
+		const int speed = 3;
+		Point current_point = {high_res_bounds.x, high_res_bounds.y};
 		current_point = Graphing::advance(current_point, {(double)Player::players[0]->get_Bounds().x + 16, (double)Player::players[0]->get_Bounds().y + 16}, speed);
+
+		high_res_bounds.x += current_point.x;
+		high_res_bounds.y += current_point.y;
+
 		if(current_point.x - (int)current_point.x > 0.5)
-			bounds.x += ceil(current_point.x);
+			bounds.x = ceil(high_res_bounds.x);
 		else
-			bounds.x += floor(current_point.x);
+			bounds.x = floor(high_res_bounds.x);
 
 		if(current_point.y - (int)current_point.y > 0.5)
-			bounds.y += ceil(current_point.y);
+			bounds.y = ceil(high_res_bounds.y);
 		else
-			bounds.y += floor(current_point.y);
-
-		bounds.x += current_point.x;
-		bounds.y += current_point.y;
+			bounds.y = floor(high_res_bounds.y);
 
 		std::cout << current_point.x << " " << current_point.y << std::endl;
 	}
