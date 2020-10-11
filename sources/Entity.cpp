@@ -6,6 +6,7 @@
 #include <SDL2/SDL.h>
 
 #include "Constants.h"
+#include "Utils/Shapes.h"
 
 std::vector<Entity*> Entity::entitys;
 

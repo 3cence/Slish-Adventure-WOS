@@ -1,9 +1,12 @@
 #include "Green_Slish.h"
 #include "Entity.h"
+#include "Player.h"
 #include "Constants.h"
+#include "Utils/Graphing.h"
 
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
@@ -68,7 +71,29 @@ void Green_Slish::spawn()
 
 void Green_Slish::tick(std::vector<SDL_Event> events, int time)
 {
+	static long passed = time;
+	passed++;
 
+	if(passed % 4 == 0)
+	{
+		const int speed = 2;
+		Point current_point = {(double)bounds.x, (double)bounds.y};
+		current_point = Graphing::advance(current_point, {(double)Player::players[0]->get_Bounds().x + 16, (double)Player::players[0]->get_Bounds().y + 16}, speed);
+		if(current_point.x - (int)current_point.x > 0.5)
+			bounds.x += ceil(current_point.x);
+		else
+			bounds.x += floor(current_point.x);
+
+		if(current_point.y - (int)current_point.y > 0.5)
+			bounds.y += ceil(current_point.y);
+		else
+			bounds.y += floor(current_point.y);
+
+		bounds.x += current_point.x;
+		bounds.y += current_point.y;
+
+		std::cout << current_point.x << " " << current_point.y << std::endl;
+	}
 }
 
 Green_Slish::~Green_Slish()

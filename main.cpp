@@ -38,8 +38,6 @@ int main(int argc, char* argv[])
     new Player(renderer, window);
     Green_Slish::spawn();
 
-    std::cout << Graphing::distance({0, 0}, {1, 1}) << std::endl;;
-
     //Main Loop & Events
     SDL_Event event;
     bool running = true;

@@ -11,8 +11,20 @@ namespace Graphing
 		return sqrt(x + y);
 	}
 
-	void advance(SDL_Point& current, SDL_Point destination, int step)
+	Point advance(Point current, Point destination, int step)
 	{
+		Point result;
+	    int angle = atan2(abs(current.x - destination.x), abs(current.y - destination.y)) * (180 / M_PI);
+	    angle = -(angle - 90);
+	    std::cout << angle << std::endl;
+	    result.x = abs(cos(angle) * step);
+	    result.y = abs(sin(angle) * step);
 
+	    if(current.x > destination.x)
+	    	result.x *= -1;
+	    if(current.y > destination.y)
+	    	result.y *= -1;
+
+	    return result;
 	}
 }
