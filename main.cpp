@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     //Init core game objects
     Green_Slish::init(window, renderer);
     new Player(renderer, window);
-    Green_Slish::spawn();
+    //Green_Slish::spawn();
 
     //Main Loop & Events
     SDL_Event event;
