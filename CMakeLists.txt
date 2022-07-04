@@ -14,7 +14,8 @@ src/Green_Slish.cpp
 src/Player.cpp
 src/Utils/Fractions.cpp
 src/Utils/Graphing.cpp
-src/Utils/Shapes.cpp)
+src/Utils/Shapes.cpp
+src/Utils/Resources.cpp)
 target_link_libraries(SAWOS SDL2 SDL2main SDL2_image SDL2_ttf)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

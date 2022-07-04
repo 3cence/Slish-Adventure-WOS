@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Entity.h"
 #include "Constants.h"
+#include "Utils/Resources.h"
 #include <cmath>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -24,7 +25,7 @@ Player::Player(SDL_Renderer* renderer, SDL_Window* window):
     //Load the textures if has not been yet
     if(texture_base == NULL)
     {
-        texture_base = IMG_LoadTexture(renderer, "res/textures/player/player_base.png");
+        texture_base = IMG_LoadTexture(renderer, res::loadPath("/textures/player/player_base.png").c_str());
         SDL_QueryTexture(texture_base, NULL, NULL, &base_width, &base_height);
         if(texture_base == NULL)
         {
@@ -33,7 +34,7 @@ Player::Player(SDL_Renderer* renderer, SDL_Window* window):
     }
     if(texture_cannon == NULL)
     {
-        texture_cannon = IMG_LoadTexture(renderer, "res/textures/player/player_cannon.png");
+        texture_cannon = IMG_LoadTexture(renderer, res::loadPath("/textures/player/player_cannon.png").c_str());
         SDL_QueryTexture(texture_cannon, NULL, NULL, &cannon_width, &cannon_height);
         if(texture_cannon == NULL)
         {

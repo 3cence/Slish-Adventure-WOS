@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Constants.h"
 #include "Utils/Graphing.h"
+#include "Utils/Resources.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -30,7 +31,7 @@ Green_Slish::Green_Slish(SDL_Point position):
 	    high_res_bounds.w = bounds.w;
 	    high_res_bounds.h = bounds.h;
 
-		texture_green_slish[0] = IMG_LoadTexture(renderer, "res/textures/enemy/slish-calm.png");
+		texture_green_slish[0] = IMG_LoadTexture(renderer, res::loadPath("/textures/enemy/slish-calm.png").c_str());
 	}
 	else
 	{
